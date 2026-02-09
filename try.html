@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>श्री नाकोड़ा फाइनेंस व बीमा सर्विसेस</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-color: #1a5f7a;
+            --secondary-color: #57cc99;
+            --accent-color: #ff9a3c;
+            --light-color: #f8f9fa;
+            --dark-color: #333333;
+            --text-color: #2d3748;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        body {
+            font-family: 'Hind', 'Noto Sans Devanagari', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f5f7fa;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            color: var(--primary-color);
+            font-size: 28px;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: var(--accent-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover, nav ul li a.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+        
+        /* Page Container */
+        .page-container {
+            min-height: calc(100vh - 180px);
+            padding: 40px 0;
+        }
+        
+        /* Home Page */
+        .hero {
+            background: linear-gradient(to right, var(--primary-color), #2a7691);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 40px;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            background-color: #e6892a;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .services {
+            margin-bottom: 60px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+            font-size: 2rem;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary-color);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .service-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        .experience {
+            background-color: white;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+        
+        .experience-items {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        
+        .experience-item {
+            padding: 20px;
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .experience-item i {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+        
+        .experience-item h3 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        
+        /* About Page */
+        .about-content {
+            background-color: white;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
+        }
+        
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+        
+        .values {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .value-card {
+            background-color: #f0f8ff;
+            border-radius: 10px;
+            padding: 25px;
+            text-align: center;
+            border-top: 4px solid var(--secondary-color);
+        }
+        
+        .value-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        /* Contact Page */
+        .contact-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .contact-info {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+        }
+        
+        .contact-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .contact-details {
+            margin-top: 20px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .contact-icon {
+            background-color: #e8f4fc;
+            color: var(--primary-color);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .contact-form {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Hind', sans-serif;
+            font-size: 1rem;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+        
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-family: 'Hind', sans-serif;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            background-color: #144c63;
+        }
+        
+        .service-area {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+        
+        .service-area h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .service-area p {
+            font-size: 1.1rem;
+        }
+        
+        .map-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #ddd;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .experience-items {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .experience-item {
+                margin-bottom: 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            nav {
+                width: 100%;
+                margin-top: 15px;
+                display: none;
+            }
+            
+            nav.active {
+                display: block;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin-left: 0;
+                margin-bottom: 10px;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 15px;
+            }
+            
+            .hero {
+                padding: 60px 0;
+            }
+            
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            .service-card, .about-content, .contact-info, .contact-form, .service-area {
+                padding: 20px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero {
+                padding: 50px 0;
+            }
+            
+            .hero h2 {
+                font-size: 1.6rem;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+            
+            .experience-item h3 {
+                font-size: 1.8rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-hand-holding-usd logo-icon"></i>
+                <h1>श्री नाकोड़ा <span>फाइनेंस व बीमा सर्विसेस</span></h1>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#home" class="active nav-link">होम</a></li>
+                    <li><a href="#about" class="nav-link">हमारे बारे में</a></li>
+                    <li><a href="#contact" class="nav-link">संपर्क करें</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Container -->
+    <div class="container page-container">
+        <!-- Home Page -->
+        <section id="home" class="page active">
+            <div class="hero">
+                <h2>आपकी वित्तीय आवश्यकताओं का विश्वसनीय समाधान</h2>
+                <p>22 वर्षों के अनुभव के साथ, हम सभी प्रकार के लोन और बीमा सेवाएं प्रदान करते हैं। इंदौर और आसपास के क्षेत्रों में 6000+ ग्राहकों को हमारी सेवाएं प्राप्त हो चुकी हैं।</p>
+                <a href="#contact" class="cta-button nav-link">अभी संपर्क करें</a>
+            </div>
+            
+            <div class="services">
+                <h2 class="section-title">हमारी सेवाएं</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <i class="fas fa-car service-icon"></i>
+                        <h3>कार लोन</h3>
+                        <p>नये और पुराने दोनों प्रकार की कारों के लिए लोन सुविधा उपलब्ध। आसान प्रक्रिया और कम ब्याज दरों पर लोन प्राप्त करें।</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <i class="fas fa-truck service-icon"></i>
+                        <h3>ट्रक लोन</h3>
+                        <p>छोटे और बड़े दोनों प्रकार के ट्रकों के लिए लोन सुविधा। व्यावसायिक उपयोग के लिए विशेष योजनाएं उपलब्ध।</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <i class="fas fa-tractor service-icon"></i>
+                        <h3>ट्रैक्टर लोन</h3>
+                        <p>नये और पुराने ट्रैक्टर खरीदने के लिए लोन सुविधा। किसानों के लिए विशेष शर्तों पर लोन उपलब्ध।</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <i class="fas fa-tools service-icon"></i>
+                        <h3>मशीनरी लोन</h3>
+                        <p>JCB, Poklane और अन्य अर्थ मूविंग मशीनों के लिए लोन सुविधा। पट्टे (Lease) पर मशीनरी लोन भी उपलब्ध।</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <i class="fas fa-home service-icon"></i>
+                        <h3>प्रॉपर्टी लोन</h3>
+                        <p>घर, दुकान, प्लॉट या किसी भी प्रॉपर्टी को खरीदने, निर्माण करने या रेनोवेट करने के लिए लोन सुविधा।</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <i class="fas fa-shield-alt service-icon"></i>
+                        <h3>बीमा सेवाएं</h3>
+                        <p>सभी प्रकार के जनरल बीमा (वाहन, स्वास्थ्य, संपत्ति, यात्रा आदि) की सेवाएं उपलब्ध। विभिन्न कंपनियों की पॉलिसियों पर तुलनात्मक जानकारी।</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="experience">
+                <h2 class="section-title">हमारा अनुभव</h2>
+                <div class="experience-items">
+                    <div class="experience-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <h3>22+ वर्ष</h3>
+                        <p>वित्त सेवा में अनुभव</p>
+                    </div>
+                    
+                    <div class="experience-item">
+                        <i class="fas fa-users"></i>
+                        <h3>6000+</h3>
+                        <p>संतुष्ट ग्राहक</p>
+                    </div>
+                    
+                    <div class="experience-item">
+                        <i class="fas fa-bolt"></i>
+                        <h3>तेज़ प्रोसेस</h3>
+                        <p>भरोसेमंद और त्वरित लोन प्रोसेस</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Page -->
+        <section id="about" class="page">
+            <h2 class="section-title">हमारे बारे में</h2>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <p><strong>श्री नाकोड़ा फाइनेंस व बीमा सर्विसेस</strong> पिछले 22 वर्षों से वित्तीय सेवाओं के क्षेत्र में एक विश्वसनीय नाम रहा है। हमारी स्थापना का उद्देश्य लोगों को उनकी वित्तीय आवश्यकताओं के लिए सर्वोत्तम समाधान प्रदान करना रहा है।</p>
+                    
+                    <p>हम विभिन्न प्रकार के लोन (कार, ट्रक, ट्रैक्टर, प्रॉपर्टी, मशीनरी आदि) और सभी प्रकार के बीमा (जनरल इंश्योरेंस) सेवाएं प्रदान करते हैं। हमारी सेवाओं की विशेषता है - सरल प्रक्रिया, पारदर्शिता, और ग्राहकों के साथ दीर्घकालिक संबंधों पर विश्वास।</p>
+                    
+                    <p>हमारे पास इंदौर और उसके आसपास के 100 KM के दायरे में 6000 से अधिक ग्राहकों का विशाल नेटवर्क है। हमारे ग्राहकों में व्यक्तिगत उपयोगकर्ताओं के साथ-साथ व्यावसायिक संस्थान भी शामिल हैं।</p>
+                </div>
+                
+                <h3 style="color: var(--primary-color); margin-bottom: 20px; text-align: center;">हमारे मूल्य</h3>
+                
+                <div class="values">
+                    <div class="value-card">
+                        <h3>विश्वसनीयता</h3>
+                        <p>22 वर्षों से हमारे ग्राहकों के बीच विश्वास बनाए रखना हमारी प्राथमिकता रही है।</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <h3>ग्राहक सेवा</h3>
+                        <p>हम ग्राहकों की आवश्यकताओं को समझते हैं और उनके अनुरूप समाधान प्रदान करते हैं।</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <h3>तेज़ प्रक्रिया</h3>
+                        <p>लोन स्वीकृति और बीमा प्रक्रिया में न्यूनतम समय लेने पर हमारा ध्यान रहता है।</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <h3>पारदर्शिता</h3>
+                        <p>हम सभी शर्तों, शुल्कों और प्रक्रियाओं के बारे में पूरी पारदर्शिता बनाए रखते हैं।</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Page -->
+        <section id="contact" class="page">
+            <h2 class="section-title">हमसे संपर्क करें</h2>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>संपर्क विवरण</h3>
+                    <p>हमसे संपर्क करने के लिए नीचे दिए गए विवरणों का उपयोग करें। हम आपकी सभी वित्तीय आवश्यकताओं के लिए मार्गदर्शन प्रदान करेंगे।</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h4>मोबाइल नंबर</h4>
+                                <p><a href="tel:9826421184">9826421184</a></p>
+                                <p><a href="tel:9826981184">9826981184</a></p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4>ईमेल</h4>
+                                <p><a href="mailto:Chetan.jain33@gmail.com">Chetan.jain33@gmail.com</a></p>
+                                <p><a href="mailto:Vivek76jain@gmail.com">Vivek76jain@gmail.com</a></p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4>कार्य समय</h4>
+                                <p>सोमवार से शनिवार: सुबह 10:00 से शाम 7:00 बजे तक</p>
+                                <p>रविवार: अवकाश</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>संदेश भेजें</h3>
+                    <p>अपनी जानकारी भरें और हम आपसे जल्द से जल्द संपर्क करेंगे।</p>
+                    
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">आपका नाम *</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">मोबाइल नंबर *</label>
+                            <input type="tel" id="phone" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">ईमेल</label>
+                            <input type="email" id="email" class="form-control">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">आवश्यक सेवा *</label>
+                            <select id="service" class="form-control" required>
+                                <option value="">चयन करें</option>
+                                <option value="car_loan">कार लोन</option>
+                                <option value="truck_loan">ट्रक लोन</option>
+                                <option value="tractor_loan">ट्रैक्टर लोन</option>
+                                <option value="machine_loan">मशीनरी लोन</option>
+                                <option value="property_loan">प्रॉपर्टी लोन</option>
+                                <option value="insurance">बीमा सेवाएं</option>
+                                <option value="other">अन्य</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">संदेश</label>
+                            <textarea id="message" class="form-control" rows="4"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">संदेश भेजें</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="service-area">
+                <i class="fas fa-map-marker-alt map-icon"></i>
+                <h3>सेवा क्षेत्र</h3>
+                <p>हमारी सेवाएं इंदौर शहर और उसके आसपास के <strong>100 किलोमीटर के दायरे</strong> में उपलब्ध हैं।</p>
+                <p>यदि आप इस क्षेत्र में रहते हैं, तो हम आपको घर बैठे ही सेवाएं प्रदान कर सकते हैं।</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>श्री नाकोड़ा फाइनेंस</h3>
+                    <p>22 वर्षों से वित्तीय सेवाओं में विश्वसनीय नाम। सभी प्रकार के लोन और बीमा सेवाएं उपलब्ध।</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>त्वरित लिंक</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home" class="nav-link">होम</a></li>
+                        <li><a href="#about" class="nav-link">हमारे बारे में</a></li>
+                        <li><a href="#contact" class="nav-link">संपर्क करें</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>हमारी सेवाएं</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">कार लोन</a></li>
+                        <li><a href="#home">ट्रक लोन</a></li>
+                        <li><a href="#home">ट्रैक्टर लोन</a></li>
+                        <li><a href="#home">बीमा सेवाएं</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>संपर्क करें</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-phone-alt" style="margin-right: 8px;"></i> 9826421184</li>
+                        <li><i class="fas fa-phone-alt" style="margin-right: 8px;"></i> 9826981184</li>
+                        <li><i class="fas fa-envelope" style="margin-right: 8px;"></i> Chetan.jain33@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>© 2023 श्री नाकोड़ा फाइनेंस व बीमा सर्विसेस. सर्वाधिकार सुरक्षित।</p>
+                <p style="margin-top: 5px;">वेबसाइट डिज़ाइन: आपकी वित्तीय सहायता</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainNav = document.getElementById('mainNav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+            mobileMenuBtn.innerHTML = mainNav.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Page Navigation
+        const navLinks = document.querySelectorAll('.nav-link');
+        const pages = document.querySelectorAll('.page');
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                // Hide all pages
+                pages.forEach(page => {
+                    page.classList.remove('active');
+                });
+                
+                // Remove active class from all nav links
+                navLinks.forEach(navLink => {
+                    navLink.classList.remove('active');
+                });
+                
+                // Show selected page
+                const targetPage = document.querySelector(link.getAttribute('href'));
+                targetPage.classList.add('active');
+                
+                // Add active class to clicked nav link
+                link.classList.add('active');
+                
+                // Close mobile menu if open
+                if (window.innerWidth <= 768) {
+                    mainNav.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            });
+        });
+        
+        // Contact Form Submission
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service').value;
+            
+            // In a real application, you would send this data to a server
+            // For this example, we'll just show an alert
+            alert(`धन्यवाद ${name}! हम आपसे जल्द ही संपर्क करेंगे।\nआपका फोन नंबर: ${phone}\nचयनित सेवा: ${service}`);
+            
+            // Reset form
+            contactForm.reset();
+        });
+        
+        // Auto-hide mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768) {
+                if (!e.target.closest('nav') && !e.target.closest('.mobile-menu-btn')) {
+                    mainNav.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            }
+        });
+    </script>
+</body>
+</html>
